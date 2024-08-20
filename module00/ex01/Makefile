@@ -1,15 +1,18 @@
-NAME = megaphone
+NAME = phonebook
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 CPP = c++ $(CPPFLAGS)
 
-SOURCES = Megaphone.cpp
+SOURCES =	Contact.cpp \
+			PhoneBook.cpp \
+			main.cpp
+
 OBJECS = $(SOURCES:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJECS)
-	$(CPP) $^ -o $(NAME)
+	$(CPP) $^ -o $(NAME) -I.
 
 %.o: %.cpp Makefile
 	$(CPP) -c $< -o $@
