@@ -16,7 +16,7 @@ class PhoneBook {
 	
 	private:
 		// Private methods declarations
-		void		_print(std::string fieldName);
+		void		_printField(std::string fieldName);
 		std::string	_getField(std::string fieldName);
 
 		// Private variables of class

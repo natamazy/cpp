@@ -17,7 +17,7 @@ PhoneBook::~PhoneBook(void) {
 	return ;
 }
 
-void PhoneBook::_print(std::string fieldName) {
+void PhoneBook::_printField(std::string fieldName) {
 	// Output for getting input from user
 	std::cout << "Enter " + fieldName << std::endl;
 
@@ -29,7 +29,7 @@ std::string PhoneBook::_getField(std::string fieldName) {
 
 	// Getting input untill its not empty
 	while (newInput.length() < 1) {
-		PhoneBook::_print(fieldName);
+		PhoneBook::_printField(fieldName);
 		getline(std::cin, newInput);
 	}
 
