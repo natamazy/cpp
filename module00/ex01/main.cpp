@@ -1,23 +1,18 @@
-#include <iostream>
-#include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-int main() {
-	PhoneBook phonebook;
-	int i;
+int main(void) {
+	PhoneBook	newPhoneBook;
+	std::string	input;
 
-	i = 0;
-	
-	std::string prompt;
-	std::cin >> prompt;
-
-	while (prompt != "EXIT") {
-		if (prompt == "ADD") {
-				phonebook.add();
-			}
-		
-			std::cin >> prompt;
+	// Getting input untill EXIT inputed by user
+	while (getline(std::cin, input), input != "EXIT") {
+		// Adding, searching or outputting correct inputs
+		if (input == "ADD") {
+			newPhoneBook.add();
+		} else if (input == "SEARCH") {
+			std::cout << "SEARCH!" << std::endl;
+		} else {
+			std::cout << "Correct inputs are - ADD, SEARCH, EXIT" << std::endl;
 		}
-
-	return (0);
+	}
 }

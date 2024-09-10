@@ -18,7 +18,7 @@ clean:
 	rm -rf $(OBJECS)
 
 fclean: clean
-	rm -rf $(PROGRAM_NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 

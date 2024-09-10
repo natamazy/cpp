@@ -3,9 +3,9 @@ NAME = phonebook
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 CPP = c++ $(CPPFLAGS)
 
-SOURCES =	Contact.cpp \
-			PhoneBook.cpp \
-			main.cpp
+SOURCES =	main.cpp \
+			Contact.cpp \
+			PhoneBook.cpp
 
 OBJECS = $(SOURCES:.cpp=.o)
 
@@ -21,7 +21,7 @@ clean:
 	rm -rf $(OBJECS)
 
 fclean: clean
-	rm -rf $(PROGRAM_NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 

@@ -1,31 +1,27 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 12:16:23 by natamazy          #+#    #+#             */
-/*   Updated: 2024/08/20 14:58:54 by natamazy         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
 # include "Contact.hpp"
 
 class PhoneBook {
+	public:
+		// Constructor
+		PhoneBook(void);
+		// Deconstructor
+		~PhoneBook(void);
 
-private:
-	Contact _contacts[8];
-	int	_index;
+		// Methods declarations
+		void		add(void);
+		void		search(void);
+	
+	private:
+		// Private methods declarations
+		void		_print(std::string fieldName);
+		std::string	_getField(std::string fieldName);
 
-public:
-	PhoneBook(void);
-	~PhoneBook(void);
-	void	add(void);
-
+		// Private variables of class
+		Contact		_contacts[8];
+		int			_contactCount;
 };
 
 #endif

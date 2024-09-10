@@ -1,57 +1,64 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 12:18:12 by natamazy          #+#    #+#             */
-/*   Updated: 2024/08/20 14:50:10 by natamazy         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <iostream>
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) {
-	std::cout << "Constructor" << std::endl;
-	return;
+	// Init default contactCount
+	this->_contactCount = 0;
+
+	// Text to know that constructor called
+	std::cout << "PhoneBook constructor called" << std::endl;
+
+	return ;
 }
 
 PhoneBook::~PhoneBook(void) {
-	std::cout << "Destructor" << std::endl;
-	return;
+	// Text to know that constructor called
+	std::cout << "PhoneBook destructor called" << std::endl;
+
+	return ;
 }
 
-void	PhoneBook::add(void) {
-	std::string fn;
-	std::string ln;
-	std::string nn;
-	std::string pn;
-	std::string ds;
+void PhoneBook::_print(std::string fieldName) {
+	// Output for getting input from user
+	std::cout << "Enter " + fieldName << std::endl;
 
-	std::cout << "Enter first name of contact: ";
-	std::cin >> fn;
-	std::cout << "Enter last name of contact: ";
-	std::cin >> ln;
-	std::cout << "Enter nickname of contact: ";
-	std::cin >> nn;
-	std::cout << "Enter phone number of contact: ";
-	std::cin >> pn;
-	std::cout << "Enter darkest secret of contact: ";
-	std::cin >> ds;
-	std::cout << std::endl;
-	
+	return ;
+}
 
-	if (fn == "" || ln == "" || nn == "" || pn == "" || ds == "") {
-		std::cout << "None of fields cam be empty!." << std::endl;
-	} else {
-		if (_index >= 8) {
-			this->_index -= 8;
-		}
-		
-		this->_contacts[this->_index] = Contact(fn, ln, nn, pn, ds);
-		this->_index++;
+std::string PhoneBook::_getField(std::string fieldName) {
+	std::string newInput;
+
+	// Getting input untill its not empty
+	while (newInput.length() < 1) {
+		PhoneBook::_print(fieldName);
+		getline(std::cin, newInput);
 	}
 
+	return newInput;
+}
+
+void PhoneBook::add(void) {
+	// Getting input from user for new contact
+	std::string firstName		= PhoneBook::_getField("First Name");
+	std::string lastName		= PhoneBook::_getField("Last Name");
+	std::string nickName		= PhoneBook::_getField("Nickname");
+	std::string phoneNumber		= PhoneBook::_getField("Phone Number");
+	std::string darkestSecret	= PhoneBook::_getField("Darkest Secret");
+
+	// Cheking for contacts overflow and changing contactCount
+	if (this->_contactCount > 8) {
+		this->_contactCount -= 8;
+	}
+
+	// Adding new contact to contact array
+	this->_contacts[this->_contactCount] = Contact(firstName, lastName,
+													nickName, phoneNumber,
+													darkestSecret);
+
+	// Updating contact count in class
+	this->_contactCount += 1;
+
+	// Output to know that new contact added
+	std::cout << "New contact added" << std::endl;
+
+	return ;
 }
