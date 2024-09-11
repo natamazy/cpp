@@ -1,5 +1,7 @@
 #include "PhoneBook.hpp"
 
+bool isEOF(void);
+
 PhoneBook::PhoneBook(void) {
 	// Init default contactCount
 	this->_contactCount = 0;
@@ -31,6 +33,11 @@ std::string PhoneBook::_getField(std::string fieldName) {
 	while (newInput.length() < 1) {
 		PhoneBook::_printField(fieldName);
 		getline(std::cin, newInput);
+
+		// Checking for end of file (Ctrl+D infintie loop fix)
+		if (isEOF()) {
+			break ;
+		}
 	}
 
 	return newInput;
@@ -45,7 +52,7 @@ void PhoneBook::add(void) {
 	std::string darkestSecret	= PhoneBook::_getField("Darkest Secret");
 
 	// Cheking for contacts overflow and changing contactCount
-	if (this->_contactCount > 8) {
+	if (this->_contactCount >= 8) {
 		this->_contactCount -= 8;
 	}
 
@@ -59,6 +66,18 @@ void PhoneBook::add(void) {
 
 	// Output to know that new contact added
 	std::cout << "New contact added" << std::endl;
+
+	return ;
+}
+
+void PhoneBook::search(void) {
+	int	i = 0;
+
+
+	while (i < this->_contactCount) {
+		this->_contacts[i].print(i);
+		i++;
+	}
 
 	return ;
 }
