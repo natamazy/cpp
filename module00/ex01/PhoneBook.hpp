@@ -3,6 +3,10 @@
 
 # include "Contact.hpp"
 
+# define NOVALID -1
+# define ONLYLETTERS 1
+# define ONLYNUMBERS 2
+
 class PhoneBook {
 	public:
 		// Constructor
@@ -17,7 +21,7 @@ class PhoneBook {
 	private:
 		// Private methods declarations
 		void			_printField(std::string fieldName);
-		std::string		_getField(std::string fieldName);
+		std::string		_getField(std::string fieldName, int validation);
 		int				_isCorrectInput(std::string input);
 
 		// Private variables of class

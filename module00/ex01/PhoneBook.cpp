@@ -27,17 +27,44 @@ void PhoneBook::_printField(std::string fieldName) {
 	return ;
 }
 
-int isAllSpace(std::string field) {
+bool isAllAlpha(std::string field) {
 	int len = field.length();
 
-	
+	for (int i = 0; i < len; i++) {
+		if (!std::isalpha(field[0]))
+			return false;
+	}
+
+	return true;
 }
 
-std::string PhoneBook::_getField(std::string fieldName) {
+bool isAllNums(std::string field) {
+	int len = field.length();
+
+	for (int i = 0; i < len; i++) {
+		if (!std::isdigit(field[0]))
+			return false;
+	}
+
+	return true;
+}
+
+bool checkingAlnums(std::string field, int validation) {
+	if (validation == NOVALID)
+		return (true);
+
+	if (validation == ONLYLETTERS)
+		return (isAllAlpha(field));
+
+	if (validation == ONLYNUMBERS)
+		return (isAllNums(field));
+}
+
+std::string PhoneBook::_getField(std::string fieldName, int validation) {
 	std::string newInput;
 
 	// Getting input untill its not empty
-	while (newInput.length() < 1 ) {
+	while (newInput.length() < 1 && checkingAlnums(fieldName, validation)) {
 		PhoneBook::_printField(fieldName);
 		getline(std::cin, newInput);
 
