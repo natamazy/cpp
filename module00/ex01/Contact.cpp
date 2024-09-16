@@ -50,7 +50,6 @@ std::string Contact::getDarkestSecret(void) {
 
 // Method to print one contact
 void Contact::print(int i) {
-	std::cout << std::setw(10) << "Id" << "|" << std::setw(10) << "First Name" << "|" << std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nick Name" << std::endl;
 	std::cout << std::setw(10) << i;
 	std::cout << "|" << std::setw(10) << ((this->_firstName.length() > 10) ? this->_firstName.substr(0, 9) + "." : this->_firstName);
 	std::cout << "|" << std::setw(10) << ((this->_lastName.length() > 10) ? this->_lastName.substr(0, 9) + "." : this->_lastName);

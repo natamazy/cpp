@@ -31,7 +31,7 @@ bool isAllAlpha(std::string field) {
 	int len = field.length();
 
 	for (int i = 0; i < len; i++) {
-		if (!std::isalpha(field[0]))
+		if (std::isalpha(field[i]) == false)
 			return false;
 	}
 
@@ -42,7 +42,7 @@ bool isAllNums(std::string field) {
 	int len = field.length();
 
 	for (int i = 0; i < len; i++) {
-		if (!std::isdigit(field[0]))
+		if (std::isdigit(field[i]) == false)
 			return false;
 	}
 
@@ -58,15 +58,19 @@ bool checkingAlnums(std::string field, int validation) {
 
 	if (validation == ONLYNUMBERS)
 		return (isAllNums(field));
+
+	return (false);
 }
 
 std::string PhoneBook::_getField(std::string fieldName, int validation) {
 	std::string newInput;
 
 	// Getting input untill its not empty
-	while (newInput.length() < 1 && checkingAlnums(fieldName, validation)) {
+	while (newInput.length() < 1) {
 		PhoneBook::_printField(fieldName);
 		getline(std::cin, newInput);
+		if (checkingAlnums(newInput, validation) == false)
+			newInput = "";
 
 		// Checking for end of file (Ctrl+D infintie loop fix)
 		if (isEOF()) {
@@ -79,11 +83,11 @@ std::string PhoneBook::_getField(std::string fieldName, int validation) {
 
 void PhoneBook::add(void) {
 	// Getting input from user for new contact
-	std::string firstName		= PhoneBook::_getField("First Name");
-	std::string lastName		= PhoneBook::_getField("Last Name");
-	std::string nickName		= PhoneBook::_getField("Nickname");
-	std::string phoneNumber		= PhoneBook::_getField("Phone Number");
-	std::string darkestSecret	= PhoneBook::_getField("Darkest Secret");
+	std::string firstName		= PhoneBook::_getField("First Name", ONLYLETTERS);
+	std::string lastName		= PhoneBook::_getField("Last Name", ONLYLETTERS);
+	std::string nickName		= PhoneBook::_getField("Nickname", NOVALID);
+	std::string phoneNumber		= PhoneBook::_getField("Phone Number", ONLYNUMBERS);
+	std::string darkestSecret	= PhoneBook::_getField("Darkest Secret", NOVALID);
 
 	// Cheking for contacts overflow and changing contactCount
 	if (this->_contactCount >= 8) {
@@ -103,6 +107,7 @@ void PhoneBook::add(void) {
 
 	// Output to know that new contact added
 	std::cout << "New contact added" << std::endl;
+	std::cout << "Input command: ADD, SEARCH, EXIT" << std::endl;
 
 	return ;
 }
@@ -126,10 +131,18 @@ void PhoneBook::search(void) {
 	// Printing list of contacts
 	int counter = ((this->_isFull == true) ? 8 : this->_contactCount);
 
+	if (counter == 0) {
+		std::cout << "No contacts in your phonebook." << std::endl;
+		std::cout << "Correct commands are - ADD, SEARCH, EXIT" << std::endl;
+		return ;
+	}
+
+	std::cout << std::setw(10) << "Id" << "|" << std::setw(10) << "First Name" << "|" << std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nick Name" << std::endl;
 	while (i < counter) {
 		this->_contacts[i].print(i);
 		i++;
 	}
+	std::cout << "Enter index of contact you want to know more about." << std::endl;
 
 	while (getline(std::cin, input), input != "") {
 		// Adding, searching or outputting correct inputs
