@@ -16,12 +16,14 @@ class PhoneBook {
 	
 	private:
 		// Private methods declarations
-		void		_printField(std::string fieldName);
-		std::string	_getField(std::string fieldName);
+		void			_printField(std::string fieldName);
+		std::string		_getField(std::string fieldName);
+		int				_isCorrectInput(std::string input);
 
 		// Private variables of class
 		Contact		_contacts[8];
 		int			_contactCount;
+		bool		_isFull;
 };
 
 #endif

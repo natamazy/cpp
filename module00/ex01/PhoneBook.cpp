@@ -5,16 +5,17 @@ bool isEOF(void);
 PhoneBook::PhoneBook(void) {
 	// Init default contactCount
 	this->_contactCount = 0;
+	this->_isFull = false;
 
-	// Text to know that constructor called
-	std::cout << "PhoneBook constructor called" << std::endl;
+	// // Text to know that constructor called
+	// std::cout << "PhoneBook constructor called" << std::endl;
 
 	return ;
 }
 
 PhoneBook::~PhoneBook(void) {
-	// Text to know that constructor called
-	std::cout << "PhoneBook destructor called" << std::endl;
+	// // Text to know that destructor called
+	// std::cout << "PhoneBook destructor called" << std::endl;
 
 	return ;
 }
@@ -26,11 +27,17 @@ void PhoneBook::_printField(std::string fieldName) {
 	return ;
 }
 
+int isAllSpace(std::string field) {
+	int len = field.length();
+
+	
+}
+
 std::string PhoneBook::_getField(std::string fieldName) {
 	std::string newInput;
 
 	// Getting input untill its not empty
-	while (newInput.length() < 1) {
+	while (newInput.length() < 1 ) {
 		PhoneBook::_printField(fieldName);
 		getline(std::cin, newInput);
 
@@ -53,6 +60,9 @@ void PhoneBook::add(void) {
 
 	// Cheking for contacts overflow and changing contactCount
 	if (this->_contactCount >= 8) {
+		if (!this->_isFull)
+			this->_isFull = true;
+
 		this->_contactCount -= 8;
 	}
 
@@ -70,14 +80,49 @@ void PhoneBook::add(void) {
 	return ;
 }
 
+int PhoneBook::_isCorrectInput(std::string input) {
+	if (input.length() == 1 && std::isdigit(input[0])) {
+		int i = input[0] - '0';
+
+		if (i > -1 && i < ((this->_isFull == true) ? 8 : this->_contactCount)) {
+			return (i);
+		}
+	}
+
+	return (-1);
+}
+
 void PhoneBook::search(void) {
-	int	i = 0;
+	int			i = 0;
+	std::string	input;
 
+	// Printing list of contacts
+	int counter = ((this->_isFull == true) ? 8 : this->_contactCount);
 
-	while (i < this->_contactCount) {
+	while (i < counter) {
 		this->_contacts[i].print(i);
 		i++;
 	}
 
+	while (getline(std::cin, input), input != "") {
+		// Adding, searching or outputting correct inputs
+		int index = this->_isCorrectInput(input);
+
+		if (index == -1) {
+			std::cout << "Input index in range of your phonebook" << std::endl;
+			std::cout << "Or just hit enter to go back." << std::endl;
+		} else {
+			std::cout << "First Name: " << this->_contacts[index].getFirstName() << std::endl;
+			std::cout << "Last Name: " << this->_contacts[index].getLastName() << std::endl;
+			std::cout << "Nickname: " << this->_contacts[index].getNickName() << std::endl;
+			std::cout << "Phone Number: " << this->_contacts[index].getPhoneNumber() << std::endl;
+			std::cout << "Darkest secret: " << this->_contacts[index].getDarkestSecret() << std::endl;
+		}
+
+		// Checking for end of file (Ctrl+D infintie loop fix)
+		if (isEOF()) {
+			break ;
+		}
+	}
 	return ;
 }

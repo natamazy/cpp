@@ -13,6 +13,7 @@ int main(void) {
 	PhoneBook	newPhoneBook;
 	std::string	input;
 
+	std::cout << "Use commands - ADD, SEARCH, EXIT" << std::endl;
 	// Getting input untill EXIT inputed by user
 	while (getline(std::cin, input), input != "EXIT") {
 		// Adding, searching or outputting correct inputs
@@ -21,7 +22,7 @@ int main(void) {
 		} else if (input == "SEARCH") {
 			newPhoneBook.search();
 		} else {
-			std::cout << "Correct inputs are - ADD, SEARCH, EXIT" << std::endl;
+			std::cout << "Correct commands are - ADD, SEARCH, EXIT" << std::endl;
 		}
 
 		// Checking for end of file (Ctrl+D infintie loop fix)

@@ -11,6 +11,13 @@ class Contact {
 		~Contact(void);
 
 		void	print(int i);
+
+		// Accessors
+		std::string getFirstName(void);
+		std::string getLastName(void);
+		std::string getNickName(void);
+		std::string getPhoneNumber(void);
+		std::string getDarkestSecret(void);
 	
 	private:
 		std::string _firstName;
