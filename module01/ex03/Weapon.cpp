@@ -1,12 +1,18 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon() {
-	std::cout << "Constructor called" << std::endl;
+Weapon::Weapon(void) {
+	// std::cout << "Constructor called" << std::endl;
+	return ;
+}
+
+Weapon::Weapon(std::string type) {
+	// std::cout << "Constructor called" << std::endl;
+	this->_type = type;
 	return ;
 }
 
 Weapon::~Weapon() {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 	return ;
 }
 

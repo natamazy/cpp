@@ -1,9 +1,12 @@
-NAME = nnecessaryviolence
+NAME = unnecessaryviolence
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 CPP = c++ $(CPPFLAGS)
 
-SOURCES =	main.cpp
+SOURCES =	main.cpp \
+			Weapon.cpp \
+			HumanA.cpp \
+			HumanB.cpp
 
 OBJECS = $(SOURCES:.cpp=.o)
 
