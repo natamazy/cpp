@@ -9,7 +9,7 @@ void		randomChump(std::string name) {
 	return ;
 }
 
-int 		ain() {
+int 		main() {
 	Zombie* heapZombie = newZombie("HEAP");
 	heapZombie->announce();
 	

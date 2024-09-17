@@ -1,5 +1,11 @@
 #include "Zombie.hpp"
 
+Zombie::Zombie(void) {
+	std::cout << "Constructor called" << std::endl;
+
+	return ;
+}
+
 Zombie::Zombie(std::string name) {
 	this->_name = name;
 
@@ -9,13 +15,17 @@ Zombie::Zombie(std::string name) {
 }
 
 Zombie::~Zombie(void) {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called for Zombie with name: " << this->_name << std::endl;
 	
 	return ;
 }
 
 std::string		Zombie::getName(void) {
 	return (this->_name);
+}
+
+void			Zombie::setName(std::string name) {
+	this->_name = name;
 }
 
 void			Zombie::announce(void) {
