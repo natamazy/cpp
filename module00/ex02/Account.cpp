@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 11:20:53 by aperez-b          #+#    #+#             */
-/*   Updated: 2024/09/17 09:45:42 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/09/17 09:50:05 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	Account::displayStatus(void) const
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "amount:" << this->_amount << ";";
 	std::cout << "deposits:" << this->_nbDeposits << ";";
-	std::cout << "withdrawals:" << this->_nbWithdrawals << ";";
+	std::cout << "withdrawals:" << this->_nbWithdrawals;
 	std::cout << std::endl;
 }
 
@@ -117,7 +117,7 @@ void	Account::makeDeposit(int deposit)
 	Account::_totalNbDeposits++;
 	
 	std::cout << "amount:" << this->_amount << ";";
-	std::cout << "nb_deposits:" << this->_nbDeposits << ";";
+	std::cout << "nb_deposits:" << this->_nbDeposits;
 	std::cout << std::endl;
 }
 
@@ -126,12 +126,14 @@ bool	Account::makeWithdrawal(int withdrawal)
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "p_amount:" << this->_amount << ";";
-	std::cout << "withdrawal:" << withdrawal << ";";
+	std::cout << "withdrawal:";
 	
 	if (withdrawal > this->_amount) {
 		std::cout << "refused" << std::endl;
 		return (false);
 	} else {
+		std::cout << withdrawal << ";";
+
 		this->_amount -= withdrawal;
 		Account::_totalAmount -= withdrawal;
 		
@@ -139,7 +141,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 		Account::_totalNbWithdrawals++;
 		
 		std::cout << "amount:" << this->_amount << ";";
-		std::cout << "nb_withdrawals:" << this->_nbDeposits << ";";
+		std::cout << "nb_withdrawals:" << this->_nbDeposits;
 		std::cout << std::endl;
 	}
 	
