@@ -107,7 +107,6 @@ void PhoneBook::add(void) {
 
 	// Output to know that new contact added
 	std::cout << "New contact added" << std::endl;
-	std::cout << "Input command: ADD, SEARCH, EXIT" << std::endl;
 
 	return ;
 }
@@ -133,7 +132,6 @@ void PhoneBook::search(void) {
 
 	if (counter == 0) {
 		std::cout << "No contacts in your phonebook." << std::endl;
-		std::cout << "Correct commands are - ADD, SEARCH, EXIT" << std::endl;
 		return ;
 	}
 
@@ -142,7 +140,7 @@ void PhoneBook::search(void) {
 		this->_contacts[i].print(i);
 		i++;
 	}
-	std::cout << "Enter index of contact you want to know more about." << std::endl;
+	std::cout << "Enter index of contact you want to know more about. Or hit enter to continue." << std::endl;
 
 	while (getline(std::cin, input), input != "") {
 		// Adding, searching or outputting correct inputs
@@ -157,6 +155,8 @@ void PhoneBook::search(void) {
 			std::cout << "Nickname: " << this->_contacts[index].getNickName() << std::endl;
 			std::cout << "Phone Number: " << this->_contacts[index].getPhoneNumber() << std::endl;
 			std::cout << "Darkest secret: " << this->_contacts[index].getDarkestSecret() << std::endl;
+			std::cout << std::endl;
+			return ;
 		}
 
 		// Checking for end of file (Ctrl+D infintie loop fix)

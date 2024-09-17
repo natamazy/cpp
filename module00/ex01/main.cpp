@@ -21,9 +21,10 @@ int main(void) {
 			newPhoneBook.add();
 		} else if (input == "SEARCH") {
 			newPhoneBook.search();
-		} else {
-			std::cout << "Correct commands are - ADD, SEARCH, EXIT" << std::endl;
 		}
+		
+		std::cout << "Correct commands are - ADD, SEARCH, EXIT" << std::endl;
+		
 
 		// Checking for end of file (Ctrl+D infintie loop fix)
 		if (isEOF()) {
