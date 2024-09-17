@@ -1,5 +1,4 @@
 #include "Contact.hpp"
-#include <iostream>
 
 Contact::Contact(void) {
 	// // Text to know that constructor called

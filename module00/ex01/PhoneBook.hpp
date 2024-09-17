@@ -1,6 +1,8 @@
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
+# include <iostream>
+# include <iomanip>
 # include "Contact.hpp"
 
 # define NOVALID -1
