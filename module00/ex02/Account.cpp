@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 11:20:53 by aperez-b          #+#    #+#             */
-/*   Updated: 2024/09/17 09:50:05 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/09/17 09:56:14 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,7 @@ int	Account::checkAmount(void) const
 
 void	Account::_displayTimestamp(void)
 {
-	time_t	now;
-
-	now = time(NULL);
+	time_t now = time(NULL);
 	std::cout << std::put_time(localtime(&now), "[%Y%m%d_%H%M%S] ");
 }
 
