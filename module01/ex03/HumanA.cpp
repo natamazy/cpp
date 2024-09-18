@@ -1,9 +1,8 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon) {
+HumanA::HumanA(std::string name, Weapon &weapon) : _weapon(weapon) {
 	// std::cout << "Constructor called" << std::endl;
 	this->_name = name;
-	this->_weapon = weapon;
 	return ;
 }
 
@@ -17,7 +16,7 @@ void HumanA::attack(void) {
 	return ;
 }
 
-void HumanA::setWeapon(Weapon newWeapon) {
+void HumanA::setWeapon(Weapon &newWeapon) {
 	this->_weapon = newWeapon;
 	return ;
 }

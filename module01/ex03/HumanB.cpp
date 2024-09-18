@@ -1,15 +1,14 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) {
+HumanB::HumanB(std::string name) : _weapon(NULL) {
 	// std::cout << "Constructor called" << std::endl;
 	this->_name = name;
 	return ;
 }
 
-HumanB::HumanB(std::string name, Weapon weapon) {
+HumanB::HumanB(std::string name, Weapon &weapon) : _weapon(&weapon) {
 	// std::cout << "Constructor called" << std::endl;
 	this->_name = name;
-	this->_weapon = weapon;
 	return ;
 }
 
@@ -19,11 +18,11 @@ HumanB::~HumanB() {
 }
 
 void HumanB::attack(void) {
-	std::cout << this->_name << " attacks with their " << this->_weapon.getType() << std::endl;
+	std::cout << this->_name << " attacks with their " << (*this->_weapon).getType() << std::endl;
 	return ;
 }
 
-void HumanB::setWeapon(Weapon newWeapon) {
-	this->_weapon = newWeapon;
+void HumanB::setWeapon(Weapon &newWeapon) {
+	this->_weapon = &newWeapon;
 	return ;
 }
