@@ -1,10 +1,10 @@
-NAME = braiiiiiiinnnzzzz
+NAME = MyFirstClassinOrthodoxCanonicalForm
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 CPP = c++ $(CPPFLAGS)
 
 SOURCES =	main.cpp \
-			Zombie.cpp \
+			Fixed.cpp
 
 OBJECS = $(SOURCES:.cpp=.o)
 
