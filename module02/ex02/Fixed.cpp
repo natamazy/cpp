@@ -2,31 +2,31 @@
 
 Fixed::Fixed() {
 	this->_fixed = 0;
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int newI) {
 	this->_fixed = (newI) << this->_bitCount;
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float newF) {
 	this->_fixed = roundf((newF) * (1 << this->_bitCount));
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& rhd) {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 
 	this->_fixed = rhd.getRawBits();
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 void	Fixed::operator=(const Fixed& rhd) {
-	std::cout << "Copy assignment called" << std::endl;
+	// std::cout << "Copy assignment called" << std::endl;
 	this->_fixed = rhd.getRawBits();
 }
 
@@ -84,12 +84,12 @@ float	Fixed::operator*(Fixed fixed) const {
 // --------------------------------------------------------
 
 Fixed Fixed::operator++() {
-	this->fixed++;
+	this->_fixed++;
 	return (*this);
 }
 
 Fixed Fixed::operator--() {
-	this->fixed--;
+	this->_fixed--;
 	return (*this);
 }
 
@@ -107,8 +107,45 @@ Fixed Fixed::operator--(int) {
 
 // --------------------------------------------------------
 
+// min/max
+// --------------------------------------------------------
+
+Fixed &Fixed::min(Fixed &first, Fixed &second) {
+	if (first.toFloat() <= second.toFloat()) {
+		return first;
+	}
+
+	return second;
+}
+
+const Fixed &Fixed::min(Fixed const &first, Fixed const &second) {
+	if (first.toFloat() <= second.toFloat()) {
+		return first;
+	}
+
+	return second;
+}
+
+Fixed &Fixed::max(Fixed &first, Fixed &second) {
+	if (first.toFloat() >= second.toFloat()) {
+		return first;
+	}
+
+	return second;
+}
+
+const Fixed &Fixed::max(Fixed const &first, Fixed const &second) {
+	if (first.toFloat() >= second.toFloat()) {
+		return first;
+	}
+
+	return second;
+}
+
+// --------------------------------------------------------
+
 int		Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return this->_fixed;
 }
 

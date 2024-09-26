@@ -12,22 +12,27 @@ class Fixed {
 		Fixed(const float newF);
 		~Fixed();
 
-		bool	Fixed::operator>(Fixed fixed) const;
-		bool	Fixed::operator>=(Fixed fixed) const;
-		bool	Fixed::operator<(Fixed fixed) const;
-		bool	Fixed::operator<=(Fixed fixed) const;
-		bool	Fixed::operator==(Fixed fixed) const;
-		bool	Fixed::operator!=(Fixed fixed) const;
+		bool	operator>(Fixed fixed) const;
+		bool	operator>=(Fixed fixed) const;
+		bool	operator<(Fixed fixed) const;
+		bool	operator<=(Fixed fixed) const;
+		bool	operator==(Fixed fixed) const;
+		bool	operator!=(Fixed fixed) const;
 
-		float	Fixed::operator+(Fixed fixed) const;
-		float	Fixed::operator-(Fixed fixed) const;
-		float	Fixed::operator/(Fixed fixed) const;
-		float	Fixed::operator*(Fixed fixed) const;
+		float	operator+(Fixed fixed) const;
+		float	operator-(Fixed fixed) const;
+		float	operator/(Fixed fixed) const;
+		float	operator*(Fixed fixed) const;
 
-		Fixed Fixed::operator++();
-		Fixed Fixed::operator--();
-		Fixed Fixed::operator++(int);
-		Fixed Fixed::operator--(int);
+		Fixed	operator++();
+		Fixed	operator--();
+		Fixed	operator++(int);
+		Fixed	operator--(int);
+
+		static	Fixed &min(Fixed &first, Fixed &second);
+		static	const Fixed &min(Fixed const &first, Fixed const &second);
+		static	Fixed &max(Fixed &first, Fixed &second);
+		static	const Fixed &max(Fixed const &first, Fixed const &second);
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const	raw);
