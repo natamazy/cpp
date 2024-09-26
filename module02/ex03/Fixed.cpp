@@ -25,9 +25,11 @@ Fixed::~Fixed() {
 	// std::cout << "Destructor called" << std::endl;
 }
 
-Fixed	Fixed::operator=(const Fixed& rhd) {
+Fixed&	Fixed::operator=(const Fixed& rhd) {
 	// std::cout << "Copy assignment called" << std::endl;
 	this->_fixed = rhd.getRawBits();
+
+	return *this;
 }
 
 // Comparison operators
@@ -62,19 +64,19 @@ bool	Fixed::operator!=(Fixed fixed) const {
 // Arithmetic operators
 // --------------------------------------------------------
 
-float	Fixed::operator+(Fixed fixed) const {
+const Fixed	Fixed::operator+(Fixed fixed) const {
 	return this->toFloat() + fixed.toFloat();
 }
 
-float	Fixed::operator-(Fixed fixed) const {
+const Fixed	Fixed::operator-(Fixed fixed) const {
 	return this->toFloat() - fixed.toFloat();
 }
 
-float	Fixed::operator/(Fixed fixed) const {
+const Fixed	Fixed::operator/(Fixed fixed) const {
 	return this->toFloat() / fixed.toFloat();
 }
 
-float	Fixed::operator*(Fixed fixed) const {
+const Fixed	Fixed::operator*(Fixed fixed) const {
 	return this->toFloat() * fixed.toFloat();
 }
 
@@ -83,23 +85,23 @@ float	Fixed::operator*(Fixed fixed) const {
 // Pre/post indcrement/decrement operators
 // --------------------------------------------------------
 
-Fixed Fixed::operator++() {
+Fixed& Fixed::operator++() {
 	this->_fixed++;
 	return (*this);
 }
 
-Fixed Fixed::operator--() {
+Fixed& Fixed::operator--() {
 	this->_fixed--;
 	return (*this);
 }
 
-Fixed Fixed::operator++(int) {
+const Fixed Fixed::operator++(int) {
 	Fixed tmp = *this;
 	++this->_fixed;
 	return tmp;
 }
 
-Fixed Fixed::operator--(int) {
+const Fixed Fixed::operator--(int) {
 	Fixed tmp = *this;
 	--this->_fixed;
 	return tmp;

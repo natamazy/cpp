@@ -18,7 +18,7 @@ Point::Point(const Point& rhd) {
 }
 
 // Copy assignment operator
-void	Point::operator=(const Point& rhd) {
+Point&	Point::operator=(const Point& rhd) {
 	// std::cout << "Copy assignment called" << std::endl;
 	this->_x = rhd.getX();
 	this->_y = rhd.getY();
