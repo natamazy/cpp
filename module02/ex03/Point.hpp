@@ -14,12 +14,12 @@ class Point {
 		Point&	operator=(const Point& rhs);
 
 		// Getters
-		const Fixed &getX() const;
-		const Fixed &getY() const;
+		float getX() const;
+		float getY() const;
 
 	private:
 		const Fixed _x;
 		const Fixed _y;
-}
+};
 
-# endif
+#endif

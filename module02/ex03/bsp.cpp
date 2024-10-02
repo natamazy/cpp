@@ -1,10 +1,12 @@
+#include "Point.hpp"
+
 static float area (const Point ket1, const Point ket2, const Point ket3)
 {
 	float	area;
 
-	area =	( (ket1.getX().toFloat() * (ket2.getY().toFloat() - ket3.getY().toFloat()))
-			+ (ket2.getX().toFloat() * (ket3.getY().toFloat() - ket1.getY().toFloat()))
-			+ (ket3.getX().toFloat() * (ket1.getY().toFloat() - ket2.getY().toFloat()))
+	area =	( (ket1.getX() * (ket2.getY() - ket3.getY()))
+			+ (ket2.getX() * (ket3.getY() - ket1.getY()))
+			+ (ket3.getX() * (ket1.getY() - ket2.getY()))
 			) / 2;
 
 	if (area >= 0)
