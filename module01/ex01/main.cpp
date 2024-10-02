@@ -11,5 +11,15 @@ Zombie*		zombieHorde(int N, std::string name) {
 }
 
 int 		main() {
-	Zombie* zombieArray = zombieHorde(5, "someName");
+	Zombie	*horde;
+	int		zombieAmount = 10;
+
+	horde = zombieHorde(zombieAmount, "Horde Member");
+	if (horde == NULL)
+		return (EXIT_FAILURE);
+	for (int i = 0; i < zombieAmount; ++i)
+		horde[i].announce();
+	delete[] horde;
+	horde = zombieHorde(0, "Failed");
+	return (EXIT_SUCCESS);
 }
