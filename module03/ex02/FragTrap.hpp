@@ -4,7 +4,7 @@
 # include "ClapTrap.hpp"
 # include <iostream>
 
-class FragTrap : ClapTrap {
+class FragTrap : public ClapTrap {
 	public:
 		FragTrap();
 		FragTrap(std::string name);
@@ -14,16 +14,7 @@ class FragTrap : ClapTrap {
 		FragTrap&	operator=(const FragTrap& rhs);
 
 		void		attack(const std::string& target);
-		void		takeDamage(unsigned int amount);
-		void		beRepaired(unsigned int amount);
-
 		void		highFiveGuys(void);
-
-	private:
-		std::string		_name;
-		unsigned int	_hitPoints;
-		unsigned int	_energyPoints;
-		unsigned int	_attackDamage;
 };
 
 #endif

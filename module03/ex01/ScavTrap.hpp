@@ -4,7 +4,7 @@
 # include "ClapTrap.hpp"
 # include <iostream>
 
-class ScavTrap : ClapTrap {
+class ScavTrap : public ClapTrap {
 	public:
 		ScavTrap();
 		ScavTrap(std::string name);
@@ -14,16 +14,7 @@ class ScavTrap : ClapTrap {
 		ScavTrap&	operator=(const ScavTrap& rhs);
 
 		void		attack(const std::string& target);
-		void		takeDamage(unsigned int amount);
-		void		beRepaired(unsigned int amount);
-
 		void		guardGate();
-
-	private:
-		std::string		_name;
-		unsigned int	_hitPoints;
-		unsigned int	_energyPoints;
-		unsigned int	_attackDamage;
 };
 
 #endif
