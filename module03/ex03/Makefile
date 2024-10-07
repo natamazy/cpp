@@ -1,11 +1,13 @@
 NAME = nowItsWeird
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 --pedantic #-g3 -fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
 CPP = c++ $(CPPFLAGS)
 
 SOURCES =	main.cpp \
+			ScavTrap.cpp \
 			ClapTrap.cpp \
-			FragTrap.cpp
+			FragTrap.cpp \
+			DiamondTrap.cpp
 
 OBJECS = $(SOURCES:.cpp=.o)
 
