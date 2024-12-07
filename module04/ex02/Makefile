@@ -1,17 +1,19 @@
-NAME =  Animal
+NAME = Abstract
 
-HEADERS = 	Animal.hpp \
+HEADERS =	Animal.hpp \
 			Dog.hpp \
 			Cat.hpp \
 			WrongAnimal.hpp \
-			WrongCat.hpp
+			WrongCat.hpp \
+			Brain.hpp
 
-SRCS =	main.cpp \
+SRCS =  main.cpp \
 		Animal.cpp \
 		Dog.cpp \
 		Cat.cpp \
+		Brain.cpp \
 		WrongAnimal.cpp \
-		WrongCat.cpp
+		WrongCat.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
