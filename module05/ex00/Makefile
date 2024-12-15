@@ -3,7 +3,7 @@ NAME = MommyWheIGrowUpIWantToBeABureaucrat
 HEADERS = 	Bureaucrat.hpp 
 
 SRCS =		main.cpp \
-			Bureaucrat.cpp \
+			Bureaucrat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
