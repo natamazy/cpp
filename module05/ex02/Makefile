@@ -1,11 +1,17 @@
 NAME = FormUpMaggots
 
-HEADERS = 	Bureaucrat.hpp \
-			Form.hpp
+HEADERS = 	AForm.hpp \
+			Bureaucrat.hpp \
+			RobotomyRequestForm.hpp \
+			PresidentialPardonForm.hpp \
+			ShrubberyCreationForm.hpp
 
-SRCS =		main.cpp \
+SRCS = 		main.cpp \
+			AForm.cpp \
 			Bureaucrat.cpp \
-			Form.cpp
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp \
+			ShrubberyCreationForm.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
