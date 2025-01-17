@@ -29,25 +29,25 @@ Form &Form::operator=(const Form &other)
 
 const std::string Form::getName() const
 {
-	// std::cout << "Form's getName was called" << std::endl;
+	std::cout << "Form's getName was called" << std::endl;
 	return (this->name);
 }
 
 bool Form::getIsSigned() const
 {
-	// std::cout << "Form's getIsSigned was called" << std::endl;
+	std::cout << "Form's getIsSigned was called" << std::endl;
 	return (this->is_signed);
 }
 
 int Form::getGradeS() const
 {
-	// std::cout << "Form's getGradeS was called" << std::endl;
+	std::cout << "Form's getGradeS was called" << std::endl;
 	return (this->grade_s);
 }
 
 int Form::getGradeE() const
 {
-	// std::cout << "Form's getGradeE was called" << std::endl;
+	std::cout << "Form's getGradeE was called" << std::endl;
 	return (this->grade_e);
 }
 
