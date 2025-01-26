@@ -13,7 +13,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp $(HEADERS) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@

@@ -1,9 +1,9 @@
-NAME = ConversionOfScalarTypes
+NAME = IdentifyRealType
 
-HEADERS = 	ScalarConverter.hpp 
+HEADERS = 	Base.hpp
 
 SRCS =		main.cpp \
-			ScalarConverter.cpp
+			Base.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
