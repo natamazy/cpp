@@ -140,6 +140,7 @@ void ScalarConverter::convert(const std::string &literal)
 	if (literal.length() == 1 && !std::isdigit(literal[0]))
 	{
 		char_converter(literal);
+		return ;
 	}
 
 	digit_converter(literal);
