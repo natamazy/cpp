@@ -13,9 +13,9 @@ int main(void)
 	std::cout << "Non-const array:" << std::endl;
 	iter(array, 8, print);
 
-	const int stepanPartamyan[] = {818, 244, 24, 68};
+	const int stepanPartamian[] = {818, 244, 24, 68};
 	std::cout << "\nConst array:" << std::endl;
-	iter(stepanPartamyan, 4, print);
+	iter(stepanPartamian, 4, print);
 
 	return 0;
 }
