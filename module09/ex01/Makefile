@@ -1,9 +1,9 @@
-NAME = btc
+NAME = RPN
 
-HEADERS = 	BitcoinExchange.hpp
+HEADERS = 	RPN.hpp
 
 SRCS =		main.cpp \
-			BitcoinExchange.cpp
+			RPN.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
